@@ -2,24 +2,77 @@
   <div>
     <h1 class="text-primary">Personal info</h1>
     <p class="text-secondary">Please provide your name, email address, and phone number</p>
-    <form>
+    <form [formGroup]="userForm">
       <div class="mb-4">
-        <label for="exampleInputname" class="form-label text-primary">Name</label>
-        <input type="text" class="form-control" id="exampleInputname" aria-describedby="emailHelp"
-          placeholder="e.g. Stephen King">
+        <div class="d-flex justify-content-between">
+          <div>
+            <label for="exampleInputname" class="form-label text-primary">Name</label>
+          </div>
+          <div *ngIf="validator['name'].invalid && (isSubmitted || validator['name'].touched||validator['name'].dirty)">
+            <span class="text-danger fs-7" *ngIf="validator['name'].errors?.['required']">This Field
+              Is
+              Required.</span>
+            <span class="text-danger fs-7" *ngIf="validator['name'].errors?.['pattern']"> “First Name may
+              contain letters only.</span>
+            <span class="text-danger fs-7"
+              *ngIf="validator['name'].errors?.['maxlength'] && !(validator['name'].errors?.['pattern'])">
+              First Name must be less than 25 characters.</span>
+          </div>
+        </div>
+        <input type="text" class="form-control" id="exampleInputname" placeholder="e.g. Stephen King"
+          formControlName="name"
+          [ngClass]="{'is-invalid' : validator['name'].invalid && (isSubmitted || validator['name'].touched || validator['name'].dirty),
+          'is-valid' : validator['name'].valid && (isSubmitted || validator['name'].touched || validator['name'].dirty)}">
       </div>
       <div class="mb-4">
-        <label for="exampleInputEmail1" class="form-label text-primary">Email Address</label>
+        <div class="d-flex justify-content-between">
+          <div>
+            <label for="exampleInputEmail1" class="form-label text-primary">Email Address</label>
+          </div>
+          <div
+            *ngIf="validator['email'].invalid && (isSubmitted || validator['email'].touched ||validator['email'].dirty)">
+            <span class="text-danger fs-7" *ngIf="validator['email'].errors?.['required']">This Field Is
+              Required</span>
+            <span class="text-danger fs-7" *ngIf="validator['email'].errors?.['pattern'] && validator['email'].touched">
+              Please enter valid
+              email
+              id.</span>
+            <span class="text-danger fs-7"
+              *ngIf="validator['email'].errors?.['maxlength'] && !(validator['email'].errors?.['pattern'])">
+              email Id must be less than 50 characters.</span>
+          </div>
+        </div>
         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-          placeholder="e.g. stephenking@lorem.com">
+          placeholder="e.g. stephenking@lorem.com" formControlName="email"
+          [ngClass]="{'is-invalid' : validator['email'].invalid && (isSubmitted || validator['email'].touched || validator['email'].dirty),
+          'is-valid' : validator['email'].valid && (isSubmitted || validator['email'].touched || validator['email'].dirty)}">
       </div>
       <div class="mb-4">
-        <label for="exampleInputNo" class="form-label text-primary">Phone Number</label>
-        <input type="text" class="form-control" id="exampleInputNo" placeholder="e.g. +1 234 567 890">
+        <div class="d-flex justify-content-between">
+          <div>
+            <label for="exampleInputNo" class="form-label text-primary">Phone Number</label>
+          </div>
+          <div
+            *ngIf="validator['phone'].invalid && (isSubmitted || validator['phone'].touched||validator['phone'].dirty )">
+            <span class="text-danger fs-7" *ngIf="validator['phone'].errors?.['required']"> This Field Is
+              Required</span>
+            <span class="text-danger fs-7" *ngIf="validator['phone'].errors?.['pattern']"> Contact Number
+              must
+              contain only numbers.</span>
+            <span class="text-danger fs-7"
+              *ngIf="(validator['phone'].errors?.['maxlength'] || validator['phone'].errors?.['minlength']) && !(validator['phone'].errors?.['pattern'])">
+              Contact Number must be 10 numbers.</span>
+          </div>
+        </div>
+        <input type="text" class="form-control" id="exampleInputNo" placeholder="e.g. +1 234 567 890"
+          formControlName="phone"
+          [ngClass]="{'is-invalid' : validator['phone'].invalid && (isSubmitted || validator['phone'].touched || validator['phone'].dirty),
+          'is-valid' : validator['phone'].valid && (isSubmitted || validator['phone'].touched || validator['phone'].dirty)}">
       </div>
     </form>
   </div>
   <div class="d-flex justify-content-end">
-    <button type="submit" class="btn btn-primary next-step px-3 py-2" routerLink="../select-plan">Next Step</button>
+    <button type="submit" class="btn btn-primary next-step px-3 py-2" routerLink="../select-plan" (click)="SaveForm()"
+      [disabled]="userForm.invalid">Next Step</button>
   </div>
 </section>
