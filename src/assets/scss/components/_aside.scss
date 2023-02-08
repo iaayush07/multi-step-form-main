@@ -1,0 +1,35 @@
+aside {
+    width: 280px;
+    background-image: url(../../../assets/images/bg-sidebar-desktop.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 14px;
+
+    ul {
+        li {
+            margin-bottom: 20px;
+        }
+    }
+
+    .index {
+        height: 40px;
+        width: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .steps {
+        color: #bec0fc;
+        font-weight: 400;
+        font-size: 14px;
+        margin-bottom: 0;
+    }
+
+    .title {
+        color: #fff;
+        font-weight: 700;
+        margin-bottom: 0;
+        font-size: 16px;
+    }
+}

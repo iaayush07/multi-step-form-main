@@ -8,6 +8,8 @@ import { SelectPlanComponent } from './select-plan/select-plan.component';
 import { AddOnsComponent } from './add-ons/add-ons.component';
 import { SummaryComponent } from './summary/summary.component';
 import { ThankYouComponent } from './thank-you/thank-you.component';
+import { CoreModule } from './core/core.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { ThankYouComponent } from './thank-you/thank-you.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CoreModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
