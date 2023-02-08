@@ -1,1 +1,25 @@
-<p>personal-info works!</p>
+<section class="personal-info h-100 d-flex flex-column justify-content-between">
+  <div>
+    <h1 class="text-primary">Personal info</h1>
+    <p class="text-secondary">Please provide your name, email address, and phone number</p>
+    <form>
+      <div class="mb-4">
+        <label for="exampleInputname" class="form-label text-primary">Name</label>
+        <input type="text" class="form-control" id="exampleInputname" aria-describedby="emailHelp"
+          placeholder="e.g. Stephen King">
+      </div>
+      <div class="mb-4">
+        <label for="exampleInputEmail1" class="form-label text-primary">Email Address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+          placeholder="e.g. stephenking@lorem.com">
+      </div>
+      <div class="mb-4">
+        <label for="exampleInputNo" class="form-label text-primary">Phone Number</label>
+        <input type="text" class="form-control" id="exampleInputNo" placeholder="e.g. +1 234 567 890">
+      </div>
+    </form>
+  </div>
+  <div class="d-flex justify-content-end">
+    <button type="submit" class="btn btn-primary next-step px-3 py-2" routerLink="../select-plan">Next Step</button>
+  </div>
+</section>

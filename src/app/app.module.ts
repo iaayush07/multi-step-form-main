@@ -10,6 +10,7 @@ import { SummaryComponent } from './summary/summary.component';
 import { ThankYouComponent } from './thank-you/thank-you.component';
 import { CoreModule } from './core/core.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [

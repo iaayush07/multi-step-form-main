@@ -1,0 +1,26 @@
+.personal-info {
+    p {
+        font-size: 18px;
+        font-weight: 400;
+    }
+
+    label {
+        font-weight: 400;
+    }
+
+    ::placeholder {
+        font-weight: 400;
+        font-size: 14px;
+    }
+
+    .next-step {
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    input {
+        :focus {
+            border: 1px solid $primary;
+        }
+    }
+}

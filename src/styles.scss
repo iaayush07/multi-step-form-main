@@ -3,5 +3,6 @@
 /* Importing Bootstrap SCSS file. */
 @import "assets/scss/base/index";
 @import "assets/scss/components/index";
-// @import "assets/scss/vender/index";
+@import "assets/scss/layout/index";
+@import "assets/scss/vender/index";
 @import 'bootstrap/scss/bootstrap';
