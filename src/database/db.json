@@ -1,19 +1,22 @@
 {
-  "posts": [
+  "user": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "name": "ayush",
+      "email": "ayush@kuchbhi.com",
+      "phone": "7575757575"
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "name": "Ayushhh",
+      "email": "ayushhh@kuchbhi.com",
+      "phone": "5454545454",
+      "id": 2
+    },
+    {
+      "name": "Jay",
+      "email": "Jay@kuchbhi.com",
+      "phone": "7474747474",
+      "id": 3
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
