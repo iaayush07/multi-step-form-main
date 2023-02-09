@@ -1,0 +1,23 @@
+.add-ons {
+  border: 1px solid grey;
+  border-radius: 8px;
+
+  p {
+    margin-bottom: 0;
+  }
+
+  .rate {
+    color: #464bfa;
+  }
+
+  input[type=checkbox] {
+    height: 20px;
+    width: 20px;
+
+    &:checked {
+      background-color: #464bfa !important;
+      color: #ffffff !important;
+    }
+  }
+
+}

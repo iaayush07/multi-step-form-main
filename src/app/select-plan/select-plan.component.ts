@@ -17,7 +17,7 @@ this.value=false;
     this.value=false
   }
 
-  console.log("click");
-console.log(this.value);
+//   console.log("click");
+// console.log(this.value);
 
 }}
