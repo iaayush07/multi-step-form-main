@@ -1,0 +1,29 @@
+.add-card {
+  height: 200px;
+  width: 150px;
+  border: 1px solid grey;
+  border-radius: 12px;
+  padding: 15px;
+  cursor: pointer;
+
+  &:hover {
+    background: $light;
+    border: 1px solid #7f7bcc;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.go-back {
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  background-color: transparent;
+  color: grey;
+
+  &:hover {
+    color: $primary;
+  }
+}
