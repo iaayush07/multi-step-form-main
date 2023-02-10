@@ -1,58 +1,72 @@
-<section class="personal-info h-100 d-flex flex-column justify-content-between">
-  <div>
-    <h1 class="text-primary">Pick add-ons</h1>
-    <p class="text-secondary">Add-ons help enhance your gaming experience.</p>
-    <div class="mt-5">
-      <div class="d-flex justify-content-between aign-items-center add-ons p-3">
-        <div class="d-flex">
-          <div class="d-flex align-items-center">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          </div>
-          <div class="ms-4">
-            <h6 class="text-primary">Online Services</h6>
-            <p class="text-secondary">Access to multiplayes games</p>
-          </div>
-        </div>
-        <div>
-          <p class="rate">+$1/mo</p>
-        </div>
-      </div>
-      <div class="d-flex justify-content-between aign-items-center add-ons p-3 mt-4">
-        <div class="d-flex">
-          <div class="d-flex align-items-center">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          </div>
-          <div class="ms-4">
-            <h6 class="text-primary">Large Storage</h6>
-            <p class="text-secondary">Extra1TB for cloud save</p>
-          </div>
-        </div>
-        <div>
-          <p class="rate">+$2/mo</p>
-        </div>
-      </div>
-      <div class="d-flex justify-content-between aign-items-center add-ons p-3 mt-4">
-        <div class="d-flex">
-          <div class="d-flex align-items-center">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          </div>
-          <div class="ms-4">
-            <h6 class="text-primary">Customizble profile</h6>
-            <p class="text-secondary">Custom theme on your profile</p>
-          </div>
-        </div>
-        <div>
-          <p class="rate">+$3/mo</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="d-flex justify-content-between">
+<section class="h-100">
+  <form [formGroup]="serviceForm" class="personal-info h-100 d-flex flex-column justify-content-between">
     <div>
-      <button type="button" class=" px-3 go-back py-2" routerLink="../personal-info">Go Back</button>
+      <h1 class="text-primary">Pick add-ons</h1>
+      <p class="text-secondary">Add-ons help enhance your gaming experience.</p>
+      <div class="mt-5">
+        <div *ngFor="let service of services">
+          <label for="{{service.id}}">
+            <!-- [ngClass]="onlineServices == true ? 'border-active' : 'border-none'" -->
+            <div class="d-flex justify-content-between aign-items-center add-ons p-3 mt-3"
+              [ngClass]="onlineServicess == false ? 'border-active' : 'border-none'">
+              <div class="d-flex">
+                <div class="d-flex align-items-center">
+                  <input type="checkbox" (click)="check(service)" class="form-check-input" id="{{service.id}}">
+                </div>
+                <div class="ms-4">
+                  <h6 class="text-primary">{{service.serviceName}}</h6>
+                  <p class="text-secondary">{{service.serviceDetail}}</p>
+                </div>
+              </div>
+              <div>
+                <p class="rate">{{service.value}}</p>
+              </div>
+            </div>
+          </label>
+        </div>
+        <!-- <label for="large-storage">
+          <div class="d-flex justify-content-between aign-items-center add-ons p-3 mt-4">
+            <div class="d-flex">
+              <div class="d-flex align-items-center">
+                <input type="checkbox" class="form-check-input" id="large-storage">
+              </div>
+              <div class="ms-4">
+                <h6 class="text-primary">Large Storage</h6>
+                <p class="text-secondary">Extra1TB for cloud save</p>
+              </div>
+            </div>
+            <div>
+              <p class="rate">+$2/mo</p>
+            </div>
+          </div>
+        </label>
+        <label for="customize-profile">
+          <div class="d-flex justify-content-between aign-items-center add-ons p-3 mt-4">
+            <div class="d-flex">
+              <div class="d-flex align-items-center">
+                <input type="checkbox" class="form-check-input" id="customize-profile">
+              </div>
+              <div class="ms-4">
+                <h6 class="text-primary">Customizble profile</h6>
+                <p class="text-secondary">Custom theme on your profile</p>
+              </div>
+            </div>
+            <div>
+              <p class="rate">+$3/mo</p>
+            </div>
+          </div>
+        </label> -->
+      </div>
     </div>
-    <div>
-      <button type="submit" class="btn btn-primary next-step px-3 py-2" routerLink="../summary">Next Step</button>
+    <div class="d-flex justify-content-between">
+      <div>
+        <button type="button" class=" px-3 go-back py-2" routerLink="../select-plan">Go Back</button>
+      </div>
+      <div>
+        <button type="button" class="btn btn-primary next-step px-3 py-2" routerLink="../summary"
+          (click)="saveServices()">Next Step</button>
+        <!--   -->
+      </div>
     </div>
-  </div>
+  </form>
 </section>

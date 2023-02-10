@@ -29,11 +29,10 @@ export class PersonalInfoComponent {
   }
   SaveForm(){
     this.isSubmitted = true;
-
     this.userService.addUserData(this.userForm.value).subscribe(res=>{
       console.log(res);
+      this.toastrMessageService.showSuccess();
     })
-    this.toastrMessageService.showSuccess();
   }
   //getter function for validation
   get validator(): { [key: string]: AbstractControl; } {

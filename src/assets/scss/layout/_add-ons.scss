@@ -17,7 +17,20 @@
     &:checked {
       background-color: #464bfa !important;
       color: #ffffff !important;
+
     }
   }
 
+}
+
+label {
+  width: 100%;
+}
+
+.border-active {
+  border: 1px solid #464bfa;
+}
+
+.border-red {
+  border: 1px solid red;
 }
