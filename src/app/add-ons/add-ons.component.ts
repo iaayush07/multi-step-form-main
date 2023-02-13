@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserService } from '../shared/user.service';
 
 @Component({
   selector: 'app-add-ons',
@@ -10,19 +11,21 @@ export class AddOnsComponent {
 public serviceForm : FormGroup;
 public onlineServicess! : boolean;
 public largeStorage! : boolean;
+public selectedService! : boolean;
 public customizeForm! : boolean;
 public services: any[];
-public ServiceDetails : any;
+public serviceDetails: any[];
 
 constructor(
-  private formBuilder : FormBuilder
+  private formBuilder : FormBuilder, private userService : UserService
 ){
   this.serviceForm = this.formBuilder.group({
     onlineService:['',Validators.required],
     largeStorage:['',Validators.required],
     customizeForm:['',Validators.required]
   });
-
+this.serviceDetails=[];
+this.selectedService=false;
   this.services = [
     {
       id:1,
@@ -46,15 +49,17 @@ constructor(
 
 }
 
-saveServices(){
-  console.log(this.ServiceDetails);
-}
 check(res:any){
-  this.onlineServicess = this.serviceForm.value.onlineService;
-  this.ServiceDetails=res;
-  console.log(res);
+  this.selectedService = true;
+  // this.onlineServicess = this.serviceForm.value.onlineService;
+  this.serviceDetails.push(res);
+  console.log(this.serviceDetails);
 
   // console.log(this.serviceForm.value.onlineService);
   // console.log(e.target.checked);
+}
+saveServices(){
+  console.log(this.serviceDetails);
+  this.userService.addOnsSubject.next(this.serviceDetails)
 }
 }

@@ -64,7 +64,7 @@
       </div>
       <div>
         <button type="button" class="btn btn-primary next-step px-3 py-2" routerLink="../summary"
-          (click)="saveServices()">Next Step</button>
+          (click)="saveServices()" [disabled]="selectedService == false">Next Step</button>
         <!--   -->
       </div>
     </div>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder} from '@angular/forms';
 import { UserService } from '../shared/user.service';
 
 @Component({
@@ -10,10 +10,12 @@ import { UserService } from '../shared/user.service';
 export class SelectPlanComponent {
   value: boolean;
   plans: any[];
-  planDetail: any;
+  planDetail!: any[];
+  selectedPlan! : boolean;
 
   constructor(private formBuilder : FormBuilder, private userService : UserService){
     this.value=false;
+    this.selectedPlan=false;
 
     this.plans = [
       {
@@ -40,24 +42,16 @@ export class SelectPlanComponent {
     ]
   }
   onToggle(){
-    if(this.value==false){
-    this.value = true;
-  }else{
-    this.value=false
-  }
-
-
-  //   console.log("click");
-  // console.log(this.value);
-
+    this.value = !this.value
 }
-checkRadio(res:any){
-  console.log(res);
+checkRadio(res:any[]){
+  this.selectedPlan = true;
   this.planDetail = res;
 }
 savePlan(){
-  this.userService.subjectData.next(this.planDetail);
+  this.userService.subscriptionPlan.next(this.planDetail);
   console.log(this.planDetail);
+
 }
 }
 
