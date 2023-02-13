@@ -9,6 +9,8 @@ export class UserService {
   // public subjectData$: Observable<any>;
   public subscriptionPlan: BehaviorSubject<any>;
   public addOnsSubject: BehaviorSubject<any>;
+  public gobackSubject: BehaviorSubject<any>;
+  public saveFormSubject: BehaviorSubject<any>;
 
   //url of db.json
   public baseUrl: any;
@@ -17,6 +19,8 @@ export class UserService {
     this.baseUrl = "http://localhost:3000/user/";
     this.subscriptionPlan = new BehaviorSubject('');
     this.addOnsSubject = new BehaviorSubject('');
+    this.gobackSubject = new BehaviorSubject('');
+    this.saveFormSubject = new BehaviorSubject('');
     // this.subjectData$ = this.subjectData.asObservable();
   }
 
@@ -25,5 +29,8 @@ export class UserService {
     return this.http.post<user>(url, user);
   }
 
-
+  getUserData():Observable<user[]>{
+    const url: string = this.baseUrl;
+    return this.http.get<user[]>(url)
+  }
 }

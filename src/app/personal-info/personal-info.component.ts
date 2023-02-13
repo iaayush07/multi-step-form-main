@@ -1,16 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrMessageService } from '../shared/toastr-message.service';
 import { UserService } from '../shared/user.service';
+import { user } from '../user.model';
 
 @Component({
   selector: 'app-personal-info',
   templateUrl: './personal-info.component.html',
   styleUrls: ['./personal-info.component.scss']
 })
-export class PersonalInfoComponent {
+export class PersonalInfoComponent implements OnInit{
   public userForm : FormGroup;
-  public isSubmitted: boolean
+  public isSubmitted: boolean;
+  public patchForm? : any;
 
   constructor(
     private formBuilder : FormBuilder,
@@ -26,12 +28,30 @@ export class PersonalInfoComponent {
 
     this.isSubmitted = false;
   }
+  ngOnInit(): void {
+    // console.log(this.patchForm);
+    this.userService.gobackSubject.subscribe(res=>{
+      console.log(res);
+
+      if(res){
+        this.userService.saveFormSubject.subscribe((res)=>{
+          console.log(res.value);
+          this.patchForm=res
+          this.userForm.patchValue(this.patchForm)
+        });
+      }
+    })
+
+  }
   SaveForm(){
     this.isSubmitted = true;
-    this.userService.addUserData(this.userForm.value).subscribe(res=>{
-      console.log(res);
-      this.toastrMessageService.showSuccess();
-    })
+
+this.userService.saveFormSubject.next(this.userForm.value)
+
+
+
+    //   this.toastrMessageService.showSuccess();
+    // })
   }
   //getter function for validation
   get validator(): { [key: string]: AbstractControl; } {

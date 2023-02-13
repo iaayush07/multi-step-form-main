@@ -77,7 +77,8 @@
   </div>
   <div class="d-flex justify-content-between">
     <div>
-      <button type="button" class=" px-3 go-back py-2" routerLink="../personal-info">Go Back</button>
+      <button type="button" class=" px-3 go-back py-2" routerLink="../personal-info" (click)="patchForm()">Go
+        Back</button>
     </div>
     <div>
       <button type="button" class="btn btn-primary next-step px-3 py-2" (click)="savePlan()" routerLink="../add-ons"

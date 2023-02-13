@@ -12,6 +12,7 @@ export class SelectPlanComponent {
   plans: any[];
   planDetail!: any[];
   selectedPlan! : boolean;
+  goback : boolean = false;
 
   constructor(private formBuilder : FormBuilder, private userService : UserService){
     this.value=false;
@@ -52,6 +53,10 @@ savePlan(){
   this.userService.subscriptionPlan.next(this.planDetail);
   console.log(this.planDetail);
 
+}
+patchForm(){
+  this.goback = true;
+  this.userService.gobackSubject.next(this.goback);
 }
 }
 
