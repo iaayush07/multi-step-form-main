@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrMessageService } from '../shared/toastr-message.service';
 import { UserService } from '../shared/user.service';
 import { user } from '../user.model';
@@ -17,7 +18,8 @@ export class PersonalInfoComponent implements OnInit{
   constructor(
     private formBuilder : FormBuilder,
     private userService : UserService,
-    private toastrMessageService : ToastrMessageService
+    private toastrMessageService : ToastrMessageService,
+    private router : Router
     )
     {
     this.userForm = this.formBuilder.group({
@@ -37,20 +39,22 @@ export class PersonalInfoComponent implements OnInit{
         this.userService.saveFormSubject.subscribe((res)=>{
           console.log(res.value);
           this.patchForm=res
+
           this.userForm.patchValue(this.patchForm)
         });
       }
     })
-
+    console.log(this.isSubmitted);
   }
   SaveForm(){
     this.isSubmitted = true;
-
-this.userService.saveFormSubject.next(this.userForm.value)
-
-
-
-    //   this.toastrMessageService.showSuccess();
+    this.userService.formSubmitted.next(this.isSubmitted);
+    this.userService.saveFormSubject.next(this.userForm.value);
+    this.router.navigateByUrl('/select-plan');
+    this.toastrMessageService.showSuccess("Info Added Successfully");
+    console.log(this.isSubmitted);
+    // if(this.isSubmitted == true){
+    // }
     // })
   }
   //getter function for validation

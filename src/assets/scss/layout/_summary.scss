@@ -1,0 +1,14 @@
+.change {
+  color: #4647f3;
+}
+
+.btn-submit {
+  color: #FFF;
+  background-color: #4647f3;
+  border-radius: 8px;
+  border: none;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

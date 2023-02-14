@@ -1,36 +1,42 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddOnsComponent } from './add-ons/add-ons.component';
+import { AuthGuard } from './core/services/Guard/auth.guard';
 import { PersonalInfoComponent } from './personal-info/personal-info.component';
 import { SelectPlanComponent } from './select-plan/select-plan.component';
 import { SummaryComponent } from './summary/summary.component';
 import { ThankYouComponent } from './thank-you/thank-you.component';
 
 const routes: Routes = [
-  { 
-    path: 'personal-info', 
-    component: PersonalInfoComponent 
+  {
+    path: 'personal-info',
+    component: PersonalInfoComponent
   },
-  { 
-    path: '', 
-    pathMatch: 'full', 
-    redirectTo: 'personal-info' 
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'personal-info'
   },
   {
     path:'select-plan',
-    component: SelectPlanComponent
+    component: SelectPlanComponent,
+    canActivate : [AuthGuard]
   },
   {
     path:'add-ons',
-    component: AddOnsComponent
+    component: AddOnsComponent,
+    canActivate : [AuthGuard]
+
   },
   {
     path:'summary',
-    component: SummaryComponent
+    component: SummaryComponent,
+    // canActivate : [AuthGuard]
   },
   {
     path:'thank-you',
-    component: ThankYouComponent
+    component: ThankYouComponent,
+    canActivate : [AuthGuard]
   }
 ];
 

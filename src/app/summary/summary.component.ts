@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from '../shared/user.service';
 import { user } from '../user.model';
 
@@ -13,14 +14,14 @@ export class SummaryComponent implements OnInit {
   public addOnsDetail : any[];
   public personalInfo : any;
 
-  constructor(private userService:UserService){
+  constructor(private userService:UserService, private router : Router){
     this.addOnsDetail = [];
   }
 
   ngOnInit(): void {
     this.userService.subscriptionPlan.subscribe(res=>{
       this.planDetail = res;
-      console.log(this.planDetail.planName);
+      console.log(this.planDetail);
     });
 
     this.userService.addOnsSubject.subscribe(res=>{
@@ -33,6 +34,10 @@ export class SummaryComponent implements OnInit {
       this.personalInfo = res;
     })
     // this.getPersonalInfo();
+  }
+
+  submitData(){
+    this.router.navigateByUrl('/thank-you');
   }
 
   getPersonalInfo(){

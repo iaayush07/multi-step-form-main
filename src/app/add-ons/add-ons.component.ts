@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrMessageService } from '../shared/toastr-message.service';
 import { UserService } from '../shared/user.service';
 
 @Component({
@@ -17,7 +19,7 @@ public services: any[];
 public serviceDetails: any[];
 
 constructor(
-  private formBuilder : FormBuilder, private userService : UserService
+  private formBuilder : FormBuilder, private userService : UserService, private toastrmessageSerice : ToastrMessageService,private router : Router
 ){
   this.serviceForm = this.formBuilder.group({
     onlineService:['',Validators.required],
@@ -60,6 +62,8 @@ check(res:any){
 }
 saveServices(){
   console.log(this.serviceDetails);
-  this.userService.addOnsSubject.next(this.serviceDetails)
+  this.userService.addOnsSubject.next(this.serviceDetails);
+  this.toastrmessageSerice.showSuccess("Serices added SuccessFully!");
+  this.router.navigateByUrl('/summary')
 }
 }

@@ -11,6 +11,7 @@ export class UserService {
   public addOnsSubject: BehaviorSubject<any>;
   public gobackSubject: BehaviorSubject<any>;
   public saveFormSubject: BehaviorSubject<any>;
+  public formSubmitted: Subject<any>;
 
   //url of db.json
   public baseUrl: any;
@@ -21,6 +22,7 @@ export class UserService {
     this.addOnsSubject = new BehaviorSubject('');
     this.gobackSubject = new BehaviorSubject('');
     this.saveFormSubject = new BehaviorSubject('');
+    this.formSubmitted = new Subject();
     // this.subjectData$ = this.subjectData.asObservable();
   }
 

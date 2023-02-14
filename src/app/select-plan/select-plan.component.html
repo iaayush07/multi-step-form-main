@@ -10,11 +10,11 @@
           </div>
           <div>
             <h6 class="text-primary">{{plan.planName}}</h6>
-            <p *ngIf="!value">{{plan.monthlyvalue}}</p>
-            <div *ngIf="value">
-              <p class="text-secondary">{{plan.yearlyValue}}</p>
+            <p>{{plan.value}}</p>
+            <!-- <div *ngIf="value">
+              <p class="text-secondary">{{plan.monthlyvalue}}</p>
               <p class="text-primary">2 months free</p>
-            </div>
+            </div> -->
           </div>
         </label>
         <input type="radio" class="d-none" name="plan" id="{{plan.id}}" (click)="checkRadio(plan)">
@@ -81,7 +81,7 @@
         Back</button>
     </div>
     <div>
-      <button type="button" class="btn btn-primary next-step px-3 py-2" (click)="savePlan()" routerLink="../add-ons"
+      <button type="button" class="btn btn-primary next-step px-3 py-2" (click)="savePlan()"
         [disabled]="selectedPlan == false">Next Step</button>
       <!-- PlanForm -->
     </div>

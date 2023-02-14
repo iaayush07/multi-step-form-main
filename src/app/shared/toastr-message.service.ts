@@ -6,7 +6,7 @@ export class ToastrMessageService {
 
   constructor(private toastr: ToastrService) {}
 
-  showSuccess() {
-    this.toastr.success('Data Added SuccessFully !', 'Success');
+  showSuccess(message:string) {
+    this.toastr.success(message);
   }
 }

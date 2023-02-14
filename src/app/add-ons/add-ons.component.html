@@ -63,8 +63,8 @@
         <button type="button" class=" px-3 go-back py-2" routerLink="../select-plan">Go Back</button>
       </div>
       <div>
-        <button type="button" class="btn btn-primary next-step px-3 py-2" routerLink="../summary"
-          (click)="saveServices()" [disabled]="selectedService == false">Next Step</button>
+        <button type="button" class="btn btn-primary next-step px-3 py-2" (click)="saveServices()"
+          [disabled]="selectedService == false">Next Step</button>
         <!--   -->
       </div>
     </div>
