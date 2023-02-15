@@ -31,7 +31,7 @@ const routes: Routes = [
   {
     path:'summary',
     component: SummaryComponent,
-    // canActivate : [AuthGuard]
+    canActivate : [AuthGuard]
   },
   {
     path:'thank-you',

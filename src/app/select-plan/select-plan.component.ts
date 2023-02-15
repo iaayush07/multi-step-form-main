@@ -25,25 +25,22 @@ export class SelectPlanComponent implements OnInit {
 
     this.plans = [
       {
-        id :1,
+        planid :1,
         planName : "Arcade",
-        value: "$9/mo",
-        // yearlyValue: "$90/mo",
-        img : "../../assets/images/icon-arcade.svg"
+        planvalue: 9,
+        planimg : "../../assets/images/icon-arcade.svg"
       },
       {
-        id :2,
+        planid :2,
         planName : "Advance",
-        value: "$12/mo",
-        // yearlyValue: "$120/mo",
-        img : "assets/images/icon-advanced.svg"
+        planvalue: 12,
+        planimg : "assets/images/icon-advanced.svg"
       },
       {
-        id :3,
+        planid :3,
         planName : "Pro",
-        value: "$15/mo",
-        // yearlyValue: "$150/mo",
-        img: "assets/images/icon-pro.svg"
+        planvalue: 15,
+        planimg: "assets/images/icon-pro.svg"
       }
     ]
   }
@@ -51,29 +48,21 @@ export class SelectPlanComponent implements OnInit {
   }
   onToggle(){
     this.value = !this.value;
-
-    // if(this.planChange == true){
-      //   this.planChange = false;
-      // }else{
-          // this.planChange=true;
-        // }
         console.log(this.planChange);
 
         if(this.planChange==true){
-          this.planChange=false
-          this.plans[0].value="$9/mo"
-          this.plans[1].value="$12/mo"
-          this.plans[2].value="$15/mo"
+          this.planChange=false;
+          this.plans[0].planvalue=9;
+          this.plans[1].planvalue=12;
+          this.plans[2].planvalue=15;
           // this.planChange=true
         }else {
-          this.planChange=true
-          this.plans[0].value="$90/yr"
-          this.plans[1].value="$120/yr"
-          this.plans[2].value="$150/yr"
+          this.planChange=true;
+          this.plans[0].planvalue=90;
+          this.plans[1].planvalue=120;
+          this.plans[2].planvalue=150;
           // this.planChange=false
-
         }
-        // this.planChange=this.planChange == true ? false:true;
 }
 checkRadio(res:any[]){
   this.selectedPlan = true;
@@ -83,7 +72,8 @@ savePlan(){
   this.userService.subscriptionPlan.next(this.planDetail);
   console.log(this.planDetail);
   this.toastrmessageService.showSuccess("Subscription card added successfully");
-  this.router.navigateByUrl('/add-ons')
+  this.userService.planChangeSubject.next(this.planChange);
+  this.router.navigateByUrl('/add-ons');
 }
 patchForm(){
   this.goback = true;

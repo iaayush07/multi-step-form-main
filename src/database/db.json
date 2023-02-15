@@ -41,6 +41,93 @@
       "email": "ayushhh@kuchbhi.com",
       "phone": "7878787878",
       "id": 7
-    }
+    },
+    [
+      {
+        "name": "Ayush",
+        "email": "ayushhh@kuchbhi.com",
+        "phone": "7878787878"
+      },
+      {
+        "planid": 3,
+        "planName": "Pro",
+        "planvalue": 150,
+        "planimg": "assets/images/icon-pro.svg"
+      },
+      [
+        {
+          "serviceId": 2,
+          "serviceName": "Large Storage",
+          "serviceDetail": "Extra 1TB of cloud storage",
+          "serviceValue": 20
+        },
+        {
+          "serviceId": 3,
+          "serviceName": "Customizable Profile",
+          "serviceDetail": "Custom theme on your profile",
+          "serviceValue": 30
+        },
+        {
+          "serviceId": 1,
+          "serviceName": "Online Service",
+          "serviceDetail": "Access to multiple games",
+          "serviceValue": 10
+        }
+      ]
+    ],
+    [
+      {
+        "name": "Ayush",
+        "email": "raj@kuchbhi.com",
+        "phone": "7878787878"
+      },
+      {
+        "planid": 1,
+        "planName": "Arcade",
+        "planvalue": 9,
+        "planimg": "../../assets/images/icon-arcade.svg"
+      },
+      [
+        {
+          "serviceId": 1,
+          "serviceName": "Online Service",
+          "serviceDetail": "Access to multiple games",
+          "serviceValue": 1
+        },
+        {
+          "serviceId": 2,
+          "serviceName": "Large Storage",
+          "serviceDetail": "Extra 1TB of cloud storage",
+          "serviceValue": 2
+        }
+      ]
+    ],
+    [
+      {
+        "name": "Ayush",
+        "email": "ayushhh@kuchbhi.com",
+        "phone": "7878787878"
+      },
+      {
+        "planid": 2,
+        "planName": "Advance",
+        "planvalue": 12,
+        "planimg": "assets/images/icon-advanced.svg"
+      },
+      [
+        {
+          "serviceId": 1,
+          "serviceName": "Online Service",
+          "serviceDetail": "Access to multiple games",
+          "serviceValue": 1
+        },
+        {
+          "serviceId": 2,
+          "serviceName": "Large Storage",
+          "serviceDetail": "Extra 1TB of cloud storage",
+          "serviceValue": 2
+        }
+      ]
+    ]
   ]
 }

@@ -5,13 +5,13 @@
       <p class="text-secondary">Add-ons help enhance your gaming experience.</p>
       <div class="mt-5">
         <div *ngFor="let service of services">
-          <label for="{{service.id}}">
+          <label for="{{service.serviceId}}">
             <!-- [ngClass]="onlineServices == true ? 'border-active' : 'border-none'" -->
             <div class="d-flex justify-content-between aign-items-center add-ons p-3 mt-3"
               [ngClass]="onlineServicess == false ? 'border-active' : 'border-none'">
               <div class="d-flex">
                 <div class="d-flex align-items-center">
-                  <input type="checkbox" (click)="check(service)" class="form-check-input" id="{{service.id}}">
+                  <input type="checkbox" (click)="check(service)" class="form-check-input" id="{{service.serviceId}}">
                 </div>
                 <div class="ms-4">
                   <h6 class="text-primary">{{service.serviceName}}</h6>
@@ -19,7 +19,12 @@
                 </div>
               </div>
               <div>
-                <p class="rate">{{service.value}}</p>
+                <p class="rate">
+                  <span>+$</span>
+                  {{service.serviceValue}}
+                  <span *ngIf="subscriptionPlanChange == false">/mo</span>
+                  <span *ngIf="subscriptionPlanChange == true">/yr</span>
+                </p>
               </div>
             </div>
           </label>

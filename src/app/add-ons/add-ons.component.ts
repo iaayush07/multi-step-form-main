@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrMessageService } from '../shared/toastr-message.service';
@@ -9,7 +9,7 @@ import { UserService } from '../shared/user.service';
   templateUrl: './add-ons.component.html',
   styleUrls: ['./add-ons.component.scss']
 })
-export class AddOnsComponent {
+export class AddOnsComponent implements OnInit {
 public serviceForm : FormGroup;
 public onlineServicess! : boolean;
 public largeStorage! : boolean;
@@ -17,6 +17,7 @@ public selectedService! : boolean;
 public customizeForm! : boolean;
 public services: any[];
 public serviceDetails: any[];
+public subscriptionPlanChange! :boolean;
 
 constructor(
   private formBuilder : FormBuilder, private userService : UserService, private toastrmessageSerice : ToastrMessageService,private router : Router
@@ -30,26 +31,43 @@ this.serviceDetails=[];
 this.selectedService=false;
   this.services = [
     {
-      id:1,
+      serviceId:1,
       serviceName: "Online Service",
       serviceDetail: "Access to multiple games",
-      value : "+$1/month"
+      serviceValue : 1
     },
     {
-      id:2,
+      serviceId:2,
       serviceName: "Large Storage",
       serviceDetail: "Extra 1TB of cloud storage",
-      value : "+$2/month"
+      serviceValue : 2
     },
     {
-      id:3,
+      serviceId:3,
       serviceName: "Customizable Profile",
       serviceDetail: "Custom theme on your profile",
-      value : "+$3/month"
+      serviceValue : 3
     }
   ]
 
 }
+ngOnInit():void {
+    this.userService.planChangeSubject.subscribe(res=>{
+      this.subscriptionPlanChange = res;
+      console.log(this.subscriptionPlanChange);
+    });
+    if(this.subscriptionPlanChange){
+      this.services[0].serviceValue=10;
+      this.services[1].serviceValue=20;
+      this.services[2].serviceValue=30;
+    }
+    else{
+      this.services[0].serviceValue=1;
+      this.services[1].serviceValue=2;
+      this.services[2].serviceValue=3;
+    }
+
+  }
 
 check(res:any){
   this.selectedService = true;

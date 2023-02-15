@@ -12,21 +12,33 @@
       <div class="p-4 bg-light rounded-3">
         <div class="d-flex justify-content-between mb-3">
           <div class="d-flex flex-column justify-content-center">
-            <h6 class="text-primary">{{planDetail?.planName}}jfhgfu</h6>
+            <h6 class="text-primary">{{planDetail?.planName}}</h6>
             <a class="change">Change</a>
           </div>
           <div class="d-flex align-items-center">
-            <h5 class="text-primary">{{planDetail?.value}}xnkvbxvo</h5>
+            <h5 class="text-primary">
+              <span>$</span>
+              {{planDetail?.planvalue}}
+              <span *ngIf="durationChange==false">/mo</span>
+              <span *ngIf="durationChange==true">/yr</span>
+            </h5>
           </div>
         </div>
         <div *ngFor="let data of addOnsDetail" class="d-flex justify-content-between mt-3">
-          <p class="text-secondary">{{data.serviceName}}jgigb</p>
-          <h6 class="text-primary">{{data.value}}jbfei</h6>
+          <p class="text-secondary">{{data.serviceName}}</p>
+          <h6 class="text-primary">
+            <span>+$</span>
+            {{data.serviceValue}}
+            <span *ngIf="durationChange==false">/mo</span>
+            <span *ngIf="durationChange==true">/yr</span>
+          </h6>
         </div>
       </div>
       <div class="d-flex justify-content-between mt-4">
         <p class=" text-secondary">Total(per month)</p>
-        <h4 class="change">huixvxdg</h4>
+        <h4 class="change"><span>$</span>{{totalValue}}<span *ngIf="durationChange==false">/mo</span>
+          <span *ngIf="durationChange==true">/yr</span>
+        </h4>
       </div>
     </div>
     <!-- <div class=" p-3 bg-light text-primary mt-3 border border-primary rounded-3">
@@ -43,6 +55,20 @@
     <div>
       <button type="button" class=" px-3 go-back py-2" routerLink="../select-plan">Go Back</button>
     </div>
-    <button type="button" class="btn-submit next-step px-3 py-2" (click)="submitData()">Confirm</button>
+    <button type="button" class="btn-submit next-step px-3 py-2"
+      (click)="openVerticallyCentered(content)">Confirm</button>
   </div>
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Confirmation</h4>
+    </div>
+    <div class="modal-body">
+      <p>Are you sure you want to proceed?</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+      <button type="button" class="btn btn-primary ms-3"
+        (click)="submitData(); modal.close('Close click')">Submit</button>
+    </div>
+  </ng-template>
 </div>

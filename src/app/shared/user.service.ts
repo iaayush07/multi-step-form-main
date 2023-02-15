@@ -12,6 +12,7 @@ export class UserService {
   public gobackSubject: BehaviorSubject<any>;
   public saveFormSubject: BehaviorSubject<any>;
   public formSubmitted: Subject<any>;
+  public planChangeSubject: BehaviorSubject<any>;
 
   //url of db.json
   public baseUrl: any;
@@ -23,6 +24,7 @@ export class UserService {
     this.gobackSubject = new BehaviorSubject('');
     this.saveFormSubject = new BehaviorSubject('');
     this.formSubmitted = new Subject();
+    this.planChangeSubject = new BehaviorSubject('');
     // this.subjectData$ = this.subjectData.asObservable();
   }
 
