@@ -76,6 +76,9 @@ export class SummaryComponent implements OnInit {
 		this.modalService.open(content, { centered: true });
 	}
 
+  planChange(){
+    this.router.navigateByUrl('/select-plan')
+  }
   // getPersonalInfo(){
   //   this.userService.getUserData().subscribe((res:user[])=>{
   //     console.log(res);
