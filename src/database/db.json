@@ -7,127 +7,67 @@
       "phone": "7575757575"
     },
     {
-      "name": "Ayushhh",
-      "email": "ayushhh@kuchbhi.com",
-      "phone": "5454545454",
+      "name": "Avi",
+      "email": "avi@123.com",
+      "phone": "1231231231",
+      "planid": 3,
+      "planName": "Pro",
+      "planvalue": 150,
+      "planimg": "assets/images/icon-pro.svg",
+      "services": [
+        {
+          "0": {
+            "serviceId": 3,
+            "serviceName": "Customizable Profile",
+            "serviceDetail": "Custom theme on your profile",
+            "serviceValue": 30,
+            "type": "service"
+          },
+          "1": {
+            "serviceId": 2,
+            "serviceName": "Large Storage",
+            "serviceDetail": "Extra 1TB of cloud storage",
+            "serviceValue": 20,
+            "type": "service"
+          },
+          "2": {
+            "serviceId": 1,
+            "serviceName": "Online Service",
+            "serviceDetail": "Access to multiple games",
+            "serviceValue": 10,
+            "type": "service"
+          }
+        }
+      ],
       "id": 2
     },
     {
-      "name": "Jay",
-      "email": "Jay@kuchbhi.com",
-      "phone": "7474747474",
-      "id": 3
-    },
-    {
       "name": "Ayush",
-      "email": "ayush@gm.com",
-      "phone": "7575757545",
-      "id": 4
-    },
-    {
-      "name": "asyuha",
       "email": "ayushhh@kuchbhi.com",
       "phone": "7878787878",
-      "id": 5
-    },
-    {
-      "name": "Raj",
-      "email": "raj@kuchbhi.com",
-      "phone": "7878787878",
-      "id": 6
-    },
-    {
-      "name": "Raj",
-      "email": "ayushhh@kuchbhi.com",
-      "phone": "7878787878",
-      "id": 7
-    },
-    [
-      {
-        "name": "Ayush",
-        "email": "ayushhh@kuchbhi.com",
-        "phone": "7878787878"
-      },
-      {
-        "planid": 3,
-        "planName": "Pro",
-        "planvalue": 150,
-        "planimg": "assets/images/icon-pro.svg"
-      },
-      [
+      "planid": 3,
+      "planName": "Pro",
+      "planvalue": 150,
+      "planimg": "assets/images/icon-pro.svg",
+      "services": [
         {
-          "serviceId": 2,
-          "serviceName": "Large Storage",
-          "serviceDetail": "Extra 1TB of cloud storage",
-          "serviceValue": 20
-        },
-        {
-          "serviceId": 3,
-          "serviceName": "Customizable Profile",
-          "serviceDetail": "Custom theme on your profile",
-          "serviceValue": 30
-        },
-        {
-          "serviceId": 1,
-          "serviceName": "Online Service",
-          "serviceDetail": "Access to multiple games",
-          "serviceValue": 10
+          "0": {
+            "serviceId": 3,
+            "serviceName": "Customizable Profile",
+            "serviceDetail": "Custom theme on your profile",
+            "serviceValue": 30,
+            "type": "service"
+          },
+          "1": {
+            "serviceId": 2,
+            "serviceName": "Large Storage",
+            "serviceDetail": "Extra 1TB of cloud storage",
+            "serviceValue": 20,
+            "type": "service"
+          }
         }
-      ]
-    ],
-    [
-      {
-        "name": "Ayush",
-        "email": "raj@kuchbhi.com",
-        "phone": "7878787878"
-      },
-      {
-        "planid": 1,
-        "planName": "Arcade",
-        "planvalue": 9,
-        "planimg": "../../assets/images/icon-arcade.svg"
-      },
-      [
-        {
-          "serviceId": 1,
-          "serviceName": "Online Service",
-          "serviceDetail": "Access to multiple games",
-          "serviceValue": 1
-        },
-        {
-          "serviceId": 2,
-          "serviceName": "Large Storage",
-          "serviceDetail": "Extra 1TB of cloud storage",
-          "serviceValue": 2
-        }
-      ]
-    ],
-    [
-      {
-        "name": "Ayush",
-        "email": "ayushhh@kuchbhi.com",
-        "phone": "7878787878"
-      },
-      {
-        "planid": 2,
-        "planName": "Advance",
-        "planvalue": 12,
-        "planimg": "assets/images/icon-advanced.svg"
-      },
-      [
-        {
-          "serviceId": 1,
-          "serviceName": "Online Service",
-          "serviceDetail": "Access to multiple games",
-          "serviceValue": 1
-        },
-        {
-          "serviceId": 2,
-          "serviceName": "Large Storage",
-          "serviceDetail": "Extra 1TB of cloud storage",
-          "serviceValue": 2
-        }
-      ]
-    ]
+      ],
+      "id": 3
+    }
   ]
 }

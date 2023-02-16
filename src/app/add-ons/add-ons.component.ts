@@ -34,19 +34,22 @@ this.selectedService=false;
       serviceId:1,
       serviceName: "Online Service",
       serviceDetail: "Access to multiple games",
-      serviceValue : 1
+      serviceValue : 1,
+      type: "service"
     },
     {
       serviceId:2,
       serviceName: "Large Storage",
       serviceDetail: "Extra 1TB of cloud storage",
-      serviceValue : 2
+      serviceValue : 2,
+      type: "service"
     },
     {
       serviceId:3,
       serviceName: "Customizable Profile",
       serviceDetail: "Custom theme on your profile",
-      serviceValue : 3
+      serviceValue : 3,
+      type: "service"
     }
   ]
 

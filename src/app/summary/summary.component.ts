@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../shared/user.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrMessageService } from '../shared/toastr-message.service';
 
 @Component({
   selector: 'app-summary',
@@ -17,8 +18,9 @@ export class SummaryComponent implements OnInit {
   public serviceValue! : number;
   public totalValue! : number;
   public finalData: any;
+  public services: any;
 
-  constructor(private userService:UserService, private router : Router,private modalService: NgbModal){
+  constructor(private userService:UserService, private router : Router,private modalService: NgbModal, private toastrSertvice : ToastrMessageService){
     this.addOnsDetail = [];
     this.finalData = [];
   }
@@ -31,12 +33,18 @@ export class SummaryComponent implements OnInit {
     });
 
     this.userService.addOnsSubject.subscribe(res=>{
-      console.log(res);
+      // console.log(res);
       this.addOnsDetail = res;
+      this.services = {...this.addOnsDetail}
+      // for (const value of this.addOnsDetail.values()) {
+      //   this.services = value
+      //   console.log(this.services);
+      // }
+      // console.log(this.services);
       this.serviceValue = res.map((a:any)=> a.serviceValue).reduce((a:any, b:any) => a + b, 0);
-      console.log(this.serviceValue);
+      // console.log(this.serviceValue);
       this.totalValue = this.serviceValue + this.planDetail.planvalue;
-      console.log(this.totalValue);
+      // console.log(this.totalValue);
     });
 
     this.userService.saveFormSubject.subscribe(res=>{
@@ -49,14 +57,18 @@ export class SummaryComponent implements OnInit {
       this.durationChange = res;
     });
 
-    this.finalData.push(this.personalInfo,this.planDetail,this.addOnsDetail);
+    // this.finalData.push(this.personalInfo,this.planDetail,this.addOnsDetail);
+    // console.log(this.finalData);
+    this.finalData = {...this.personalInfo,...this.planDetail,...{"services" :[this.services]}}
     console.log(this.finalData);
+
     // this.getPersonalInfo();
   }
 
   submitData(){
     this.userService.addUserData(this.finalData).subscribe(res=>{
       console.log(res);
+      this.toastrSertvice.showSuccess('Your data added successfully!')
     })
     this.router.navigateByUrl('/thank-you');
   }
