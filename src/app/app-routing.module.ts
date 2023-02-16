@@ -15,7 +15,7 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'personal-info'
+    redirectTo: 'summary'
   },
   {
     path:'select-plan',

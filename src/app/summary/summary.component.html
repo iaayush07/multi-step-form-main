@@ -1,13 +1,13 @@
 <div class="d-flex flex-column justify-content-between h-100">
-  <div>
-    <h1 class="text-primary">Finishing up</h1>
-    <!-- <h5 class="text-primary">
+  <div #printableArea>
+    <h1 class="text-primary">Order Summary</h1>
+    <h5 class="text-primary mb-3">
       Hey
       <span class="fw-bold">
         {{personalInfo.name}},
       </span>
-    </h5> -->
-    <p class="text-secondary">Double check everything looks OK before confirming.</p>
+    </h5>
+    <p class="text-secondary">Please confirm your order.</p>
     <div class="d-flex flex-column">
       <div class="p-4 bg-light rounded-3">
         <div class="d-flex justify-content-between mb-3">
@@ -55,8 +55,11 @@
     <div>
       <button type="button" class=" px-3 go-back py-2" routerLink="../select-plan">Go Back</button>
     </div>
-    <button type="button" class="btn-submit next-step px-3 py-2"
-      (click)="openVerticallyCentered(content)">Confirm</button>
+    <div>
+      <button type="button" class="btn-submit next-step px-3 py-2 me-3" (click)="print('printableArea')">Print</button>
+      <button type="button" class="btn-submit next-step px-3 py-2"
+        (click)="openVerticallyCentered(content)">Confirm</button>
+    </div>
   </div>
   <ng-template #content let-modal>
     <div class="modal-header">

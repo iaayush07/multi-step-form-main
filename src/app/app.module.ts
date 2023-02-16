@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 //toastr
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { PaymentComponent } from './summary/payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ToastrModule } from 'ngx-toastr';
     SelectPlanComponent,
     AddOnsComponent,
     SummaryComponent,
-    ThankYouComponent
+    ThankYouComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,

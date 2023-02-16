@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { AsideComponent } from './aside/aside.component';
 import { RouterModule } from '@angular/router';
 import { AuthGuard } from './services/Guard/auth.guard';
-
-
+import {OverlayModule} from '@angular/cdk/overlay';
+import { OverlayService } from './services/overlay.service';
 
 @NgModule({
   declarations: [
@@ -12,13 +12,15 @@ import { AuthGuard } from './services/Guard/auth.guard';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    OverlayModule
   ],
   exports:[
     AsideComponent
   ],
   providers:[
-    AuthGuard
+    AuthGuard,
+    OverlayService
   ]
 })
 export class CoreModule { }
