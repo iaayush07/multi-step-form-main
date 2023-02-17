@@ -4,6 +4,13 @@ aside {
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 14px;
+  height: 100%;
+
+  @media (max-width:425px) {
+    background-image: url(../../../assets/images/bg-sidebar-mobile.svg);
+    border-radius: 0;
+    height: 160px;
+  }
 
   ul {
     li {

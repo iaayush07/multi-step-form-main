@@ -2,13 +2,14 @@
   <div>
     <h1 class="text-primary">Select your plan</h1>
     <p class="text-secondary">You have the option of yearly or Monthly biling.</p>
-    <div class="d-flex justify-content-between mt-5">
-      <div *ngFor="let plan of plans">
-        <label for="{{plan.planid}}" class=" d-flex flex-column justify-content-between add-card">
+    <div class="d-flex flex-column flex-sm-row justify-content-between mt-3 mt-sm-5">
+      <div *ngFor="let plan of plans" class="mb-3 mb-sm-0">
+        <label for="{{plan.planid}}"
+          class=" d-flex flex-row flex-sm-column justify-content-start justify-content-sm-between add-card">
           <div>
             <img src="{{plan.planimg}}" alt="icon">
           </div>
-          <div>
+          <div class="ms-4 ms-sm-0">
             <h6 class="text-primary">{{plan.planName}}</h6>
             <p>
               <span>$</span>

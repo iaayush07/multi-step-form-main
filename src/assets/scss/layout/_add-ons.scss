@@ -23,6 +23,14 @@
 
 }
 
+.service-detail {
+  font-size: 18px;
+
+  @media (max-width:425px) {
+    font-size: 16px;
+  }
+}
+
 label {
   width: 100%;
 }

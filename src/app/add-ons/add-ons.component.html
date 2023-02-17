@@ -3,7 +3,7 @@
     <div>
       <h1 class="text-primary">Pick add-ons</h1>
       <p class="text-secondary">Add-ons help enhance your gaming experience.</p>
-      <div class="mt-5">
+      <div class="mt-0 mt-sm-5 ">
         <div *ngFor="let service of services">
           <label for="{{service.serviceId}}">
             <!-- [ngClass]="onlineServices == true ? 'border-active' : 'border-none'" -->
@@ -15,15 +15,13 @@
                 </div>
                 <div class="ms-4">
                   <h6 class="text-primary">{{service.serviceName}}</h6>
-                  <p class="text-secondary">{{service.serviceDetail}}</p>
+                  <p class="text-secondary service-detail">{{service.serviceDetail}}</p>
                 </div>
               </div>
               <div>
                 <p class="rate">
-                  <span>+$</span>
-                  {{service.serviceValue}}
-                  <span *ngIf="subscriptionPlanChange == false">/mo</span>
-                  <span *ngIf="subscriptionPlanChange == true">/yr</span>
+                  <span>+$</span>{{service.serviceValue}}<span *ngIf="subscriptionPlanChange == false">/mo</span><span
+                    *ngIf="subscriptionPlanChange == true">/yr</span>
                 </p>
               </div>
             </div>

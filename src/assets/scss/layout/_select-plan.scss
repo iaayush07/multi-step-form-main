@@ -6,6 +6,11 @@
   padding: 15px;
   cursor: pointer;
 
+  @media (max-width: 425px) {
+    width: 100%;
+    height: auto;
+  }
+
   &:hover {
     background: $light;
     border: 1px solid #7f7bcc;
