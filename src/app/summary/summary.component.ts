@@ -13,7 +13,9 @@ import { OverlayService } from '../core/services/overlay.service';
 })
 export class SummaryComponent implements OnInit {
 
+  //---------------------------------------------
   @ViewChild('printableArea') printableArea!: ElementRef<HTMLInputElement>;
+  @ViewChild('printableArea') myDiv!: ElementRef;
   public planDetail : any;
   public addOnsDetail : any[];
   public personalInfo : any;
@@ -23,27 +25,29 @@ export class SummaryComponent implements OnInit {
   public finalData: any;
   public services: any;
   public myDivSaved: any;
+  //---------------------------------------------
 
+  //---------------------------------------------
   constructor(private userService:UserService, private router : Router,private modalService: NgbModal, private toastrSertvice : ToastrMessageService, private overlayService : OverlayService){
     this.addOnsDetail = [];
     this.finalData = [];
   }
+  //---------------------------------------------
 
-  @ViewChild('printableArea') myDiv!: ElementRef;
+  //---------------------------------------------
   ngAfterViewInit() {
     console.log();
     this.myDivSaved =this.myDiv.nativeElement.innerHTML;
-}
+  }
+  //---------------------------------------------
+
+  //---------------------------------------------
   ngOnInit(): void {
     this.userService.subscriptionPlan.subscribe(res=>{
       this.planDetail = res;
-      console.log(this.planDetail);
-      console.log(this.planDetail.planvalue);
+      // console.log(this.planDetail);
+      // console.log(this.planDetail.planvalue);
     });
-
-
-
-
     this.userService.addOnsSubject.subscribe(res=>{
       // console.log(res);
       this.addOnsDetail = res;
@@ -77,21 +81,31 @@ export class SummaryComponent implements OnInit {
     // this.getPersonalInfo();
   }
 
+  /**
+   * submit data (post call)
+   */
   submitData(){
     this.userService.addUserData(this.finalData).subscribe(res=>{
       console.log(res);
       this.toastrSertvice.showSuccess('Your data added successfully!')
+      this.router.navigateByUrl('/thank-you');
     })
-    this.router.navigateByUrl('/thank-you');
   }
+
+  //open confirmation pop-up
   openVerticallyCentered(content:any) {
 		this.modalService.open(content, { centered: true });
 	}
 
+  //-confirmation of selecetd paln
   planChange(){
     this.router.navigateByUrl('/select-plan')
   }
 
+  /**
+   * print summary payment
+   * @param areaID
+   */
   print(areaID:any){
     // var printContent = document.getElementById(areaID)!.innerHTML;
     var originalContent = document.body.innerHTML;

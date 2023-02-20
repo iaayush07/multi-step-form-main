@@ -10,6 +10,8 @@ import { UserService } from '../shared/user.service';
   styleUrls: ['./add-ons.component.scss']
 })
 export class AddOnsComponent implements OnInit {
+
+//-------------------------------
 public serviceForm : FormGroup;
 public onlineServicess! : boolean;
 public largeStorage! : boolean;
@@ -18,7 +20,9 @@ public customizeForm! : boolean;
 public services: any[];
 public serviceDetails: any[];
 public subscriptionPlanChange! :boolean;
+//-------------------------------------
 
+//-----------------------------
 constructor(
   private formBuilder : FormBuilder, private userService : UserService, private toastrmessageSerice : ToastrMessageService,private router : Router
 ){
@@ -52,8 +56,10 @@ this.selectedService=false;
       type: "service"
     }
   ]
-
 }
+//--------------------------------------
+
+//--------------------------------------
 ngOnInit():void {
     this.userService.planChangeSubject.subscribe(res=>{
       this.subscriptionPlanChange = res;
@@ -69,18 +75,25 @@ ngOnInit():void {
       this.services[1].serviceValue=2;
       this.services[2].serviceValue=3;
     }
-
   }
+  //----------------------------------------
 
+  /**
+   * online services selected or not
+   * @param res
+   */
 check(res:any){
   this.selectedService = true;
-  // this.onlineServicess = this.serviceForm.value.onlineService;
+  this.onlineServicess = this.serviceForm.value.onlineService;
   this.serviceDetails.push(res);
   console.log(this.serviceDetails);
-
   // console.log(this.serviceForm.value.onlineService);
   // console.log(e.target.checked);
 }
+
+/**
+ * save add-ons and route to summary page
+ */
 saveServices(){
   console.log(this.serviceDetails);
   this.userService.addOnsSubject.next(this.serviceDetails);

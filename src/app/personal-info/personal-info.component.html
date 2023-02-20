@@ -1,8 +1,11 @@
+<!-- personal-info--start-- -->
 <section class="personal-info h-100 d-flex flex-column justify-content-between">
   <div>
     <h1 class="text-primary">Personal info</h1>
     <p class="text-secondary">Please provide your name, email address, and phone number</p>
+    <!-- form-start-- -->
     <form [formGroup]="userForm">
+      <!-- name--start-- -->
       <div class="mb-4">
         <div class="d-flex justify-content-between">
           <div>
@@ -24,6 +27,9 @@
           [ngClass]="{'is-invalid' : validator['name'].invalid && (isSubmitted || validator['name'].touched || validator['name'].dirty),
           'is-valid' : validator['name'].valid && (isSubmitted || validator['name'].touched || validator['name'].dirty)}">
       </div>
+      <!-- name--end-- -->
+
+      <!-- email-start-- -->
       <div class="mb-4">
         <div class="d-flex justify-content-between">
           <div>
@@ -47,6 +53,9 @@
           [ngClass]="{'is-invalid' : validator['email'].invalid && (isSubmitted || validator['email'].touched || validator['email'].dirty),
           'is-valid' : validator['email'].valid && (isSubmitted || validator['email'].touched || validator['email'].dirty)}">
       </div>
+      <!-- email-end-- -->
+
+      <!-- Phone-no-start-- -->
       <div class="mb-4">
         <div class="d-flex justify-content-between">
           <div>
@@ -69,7 +78,9 @@
           [ngClass]="{'is-invalid' : validator['phone'].invalid && (isSubmitted || validator['phone'].touched || validator['phone'].dirty),
           'is-valid' : validator['phone'].valid && (isSubmitted || validator['phone'].touched || validator['phone'].dirty)}">
       </div>
+      <!-- Phone-no-end-- -->
     </form>
+    <!-- form-end-- -->
   </div>
   <div class="d-flex justify-content-end">
     <button type="button" class="btn btn-primary next-step px-3 py-2" (click)="SaveForm()"
@@ -77,3 +88,4 @@
     <!-- routerLink="../select-plan" -->
   </div>
 </section>
+<!-- personal-info--end-- -->

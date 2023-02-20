@@ -11,10 +11,14 @@ import { user } from '../user.model';
   styleUrls: ['./personal-info.component.scss']
 })
 export class PersonalInfoComponent implements OnInit{
+
+  //--------------------------------
   public userForm : FormGroup;
   public isSubmitted: boolean;
   public patchForm? : any;
+  //--------------------------------
 
+  //--------------------------------
   constructor(
     private formBuilder : FormBuilder,
     private userService : UserService,
@@ -22,16 +26,19 @@ export class PersonalInfoComponent implements OnInit{
     private router : Router
     )
     {
-    this.userForm = this.formBuilder.group({
-      name:['', [Validators.required,Validators.maxLength(25), Validators.pattern('^[a-zA-Z]+$')]],
-      email:['', [Validators.required,Validators.maxLength(50), Validators.pattern(/^[A-Za-z0-9]([A-Za-z0-9\_\.]*)+@(([A-Za-z0-9-]{2,})+\.)+[A-Za-z\-]{2,4}$/)]],
-      phone:['', [Validators.required, Validators.maxLength(10), Validators.minLength(10), Validators.pattern(/^[0-9]+$/)]]
-    })
+      this.userForm = this.formBuilder.group({
+        name:['', [Validators.required,Validators.maxLength(25), Validators.pattern('^[a-zA-Z]+$')]],
+        email:['', [Validators.required,Validators.maxLength(50), Validators.pattern(/^[A-Za-z0-9]([A-Za-z0-9\_\.]*)+@(([A-Za-z0-9-]{2,})+\.)+[A-Za-z\-]{2,4}$/)]],
+        phone:['', [Validators.required, Validators.maxLength(10), Validators.minLength(10), Validators.pattern(/^[0-9]+$/)]]
+      })
 
-    this.isSubmitted = false;
-  }
-  ngOnInit(): void {
-    // console.log(this.patchForm);
+      this.isSubmitted = false;
+    }
+    //--------------------------------
+
+    //--------------------------------
+    ngOnInit(): void {
+      // console.log(this.patchForm);
     this.userService.gobackSubject.subscribe(res=>{
       console.log(res);
 
@@ -46,6 +53,13 @@ export class PersonalInfoComponent implements OnInit{
     })
     console.log(this.isSubmitted);
   }
+  //--------------------------------
+
+  /**
+   * save personal info
+   * send data to summary component
+   * route to select-plan component
+   */
   SaveForm(){
     this.isSubmitted = true;
     this.userService.formSubmitted.next(this.isSubmitted);
@@ -57,6 +71,7 @@ export class PersonalInfoComponent implements OnInit{
     // }
     // })
   }
+
   //getter function for validation
   get validator(): { [key: string]: AbstractControl; } {
     return this.userForm.controls;

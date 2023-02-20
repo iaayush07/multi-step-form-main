@@ -1,4 +1,6 @@
+<!-- add-ons start--  -->
 <section class="h-100">
+  <!-- form-start-- -->
   <form [formGroup]="serviceForm" class="personal-info h-100 d-flex flex-column justify-content-between">
     <div>
       <h1 class="text-primary">Pick add-ons</h1>
@@ -8,7 +10,7 @@
           <label for="{{service.serviceId}}">
             <!-- [ngClass]="onlineServices == true ? 'border-active' : 'border-none'" -->
             <div class="d-flex justify-content-between aign-items-center add-ons p-3 mt-3"
-              [ngClass]="onlineServicess == false ? 'border-active' : 'border-none'">
+              [ngClass]="onlineServicess == false ? 'selected border-active' : 'border-none'">
               <div class="d-flex">
                 <div class="d-flex align-items-center">
                   <input type="checkbox" (click)="check(service)" class="form-check-input" id="{{service.serviceId}}">
@@ -72,4 +74,6 @@
       </div>
     </div>
   </form>
+  <!-- form-end-- -->
 </section>
+<!-- add-ons end--  -->

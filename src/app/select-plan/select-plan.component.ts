@@ -10,18 +10,24 @@ import { UserService } from '../shared/user.service';
   styleUrls: ['./select-plan.component.scss']
 })
 export class SelectPlanComponent implements OnInit {
+
+  //----------------------------------------------
   value: boolean;
   plans: any[];
   planDetail!: any[];
   selectedPlan! : boolean;
   goback : boolean ;
   planChange: boolean;
+  planSelected: boolean;
+  //----------------------------------------------
 
+  //----------------------------------------------
   constructor( private userService : UserService, private toastrmessageService : ToastrMessageService, private router :Router){
     this.value=false;
     this.selectedPlan=false;
     this.goback=false;
     this.planChange=false;
+    this.planSelected=false;
 
     this.plans = [
       {
@@ -44,8 +50,23 @@ export class SelectPlanComponent implements OnInit {
       }
     ]
   }
+  //----------------------------------------------
+
+  //----------------------------------------------
   ngOnInit(): void {
   }
+
+  /**
+   * check plan is selected or not
+   */
+  onSelected(){
+    this.planSelected = true;
+    console.log(this.planSelected);
+  }
+
+  /**
+   * toggle monthly and yearly cards
+   */
   onToggle(){
     this.value = !this.value;
         console.log(this.planChange);
@@ -64,10 +85,19 @@ export class SelectPlanComponent implements OnInit {
           // this.planChange=false
         }
 }
+
+/**
+ * get planDetails
+ * @param res
+ */
 checkRadio(res:any[]){
   this.selectedPlan = true;
   this.planDetail = res;
 }
+
+/**
+ * save selected plan and send to the summary component
+ */
 savePlan(){
   this.userService.subscriptionPlan.next(this.planDetail);
   console.log(this.planDetail);
@@ -75,6 +105,10 @@ savePlan(){
   this.userService.planChangeSubject.next(this.planChange);
   this.router.navigateByUrl('/add-ons');
 }
+
+/**
+ * patch form
+ */
 patchForm(){
   this.goback = true;
   this.userService.gobackSubject.next(this.goback);

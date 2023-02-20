@@ -21,6 +21,11 @@
   }
 }
 
+.selected {
+  background: $light;
+  border: 1px solid #7f7bcc;
+}
+
 .go-back {
   font-size: 16px;
   font-weight: 500;
